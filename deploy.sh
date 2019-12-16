@@ -1,15 +1,15 @@
 pip install --user awscli
 export PATH=$PATH:$HOME/.local/bin
 
-add-apt-repository ppa:eugenesan/ppa
-apt-get update
-apt-get install jq -y
+sudo add-apt-repository -y ppa:eugenesan/ppa
+sudo apt-get update
+sudo apt-get install jq -y
 
 curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
 sudo chmod +x /usr/bin/ecs-deploy
 
 # Use this for AWS ECR
-# eval $(aws ecr get-login --region us-east-1)
+# $(aws ecr get-login --no-include-email)
 
 # Use this for Docker Hub
 docker login --username $DOCKER_HUB_USER --password $DOCKER_HUB_PSW
